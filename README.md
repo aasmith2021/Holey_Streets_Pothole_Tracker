@@ -1,0 +1,2 @@
+# Holey_Streets_Pothole_Tracker
+This pothole tracker web application allows users to crowd-source data to report potholes in their city on a map and include a link to a picture of the pothole as well as file a damage claim. Administrators can give users "Employee" access to the site and approve/deny damage claims, and Employees can rank pothole severity, mark potholes as "inspected" and "repaired", and delete duplicate pothole reports.
