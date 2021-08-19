@@ -55,6 +55,14 @@
           </div>
         </l-popup>
       </l-marker>
+
+      <l-marker
+        :visible="ifAdding"
+        :lat-lng="currentCenter"
+        :opacity="1"
+        :icon="makeCenterPinIcon()"
+      >
+      </l-marker>
     </l-map>
     <div v-show="latLongZoomInfoVisible">
       {{ currentCenter }} {{ currentZoom }}
@@ -75,7 +83,7 @@ import {
 } from "vue2-leaflet";
 export default {
   name: "Map",
-  props: ["currentView", "latLongZoomInfoVisible", "mapKey", "isBigMap"],
+  props: ["currentView", "latLongZoomInfoVisible", "mapKey", "isBigMap", "ifAdding"],
   components: {
     LMap,
     LTileLayer,
@@ -119,6 +127,15 @@ export default {
     };
   },
   methods: {
+    makeCenterPinIcon() {
+      const size = this.regSize;
+      const url = this.icons.baseIcon;
+      return L.icon({
+        iconUrl: url,
+        iconSize: size,
+        iconAnchor: this.dynamicAnchor(size)
+      });
+    },
     makeIcon(p) {
       const size = p.isBig ? this.bigSize : this.regSize;
       const url = this.getColor(p);

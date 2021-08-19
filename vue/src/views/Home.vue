@@ -22,6 +22,7 @@
           @sendupcoords="setCoordinates"
           v-bind:latLongZoomInfoVisible="false"
           ref="streetmap"
+          v-bind:ifAdding="ifAdding"
         />
       </div>
 
@@ -31,13 +32,6 @@
         v-bind:currentCenter="currentCenter"
       />
     </div>
-
-    <img
-      v-show="ifAdding"
-      class="center-marker"
-      src="marker-icon-blue.png"
-      alt="Center marker"
-    />
   </div>
 </template>
 
@@ -90,15 +84,6 @@ div.home-page-map {
 }
 
 @media only screen and (min-width: 1024px) {
-  .center-marker {
-    z-index: 1000;
-    height: 45px;
-    width: auto;
-    position: relative;
-    top: -19.4vw;
-    left: 49.2vw;
-  }
-
   #sidebar-1 > header.b-sidebar-header {
     display: flex;
     flex-direction: column-reverse;
@@ -130,15 +115,6 @@ div.home-page-map {
 }
 
 @media only screen and (max-width: 1024px) {
-  .center-marker {
-    z-index: 1000;
-    height: 45px;
-    width: auto;
-    position: relative;
-    top: -35vw;
-    left: 48.65vw;
-  }
-
   #sidebar-1 > header.b-sidebar-header {
     display: flex;
     flex-direction: column-reverse;
